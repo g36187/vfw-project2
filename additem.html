@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<!-- Project 1 | Ruben Quizon | Term 1307 -->
+<head>
+	
+	<!-- Character Set Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="robots" value="index, follow"/>
+	<meta name="keywords" content="HTML,CSS,Bug-out"/>
+	<meta name="description" content="Add items to Bug-out bag"/>
+	
+	<!-- Page Title -->
+	<title>Bug-out Bag Packing List -- Add An Item</title>
+	
+</head>
+<body>
+	<!-- Page content lives here. -->
+	<h1>Add an Item to your Bag</h1>
+	<form>
+		<fieldset>
+			<legend>Input Items</legend>
+			Item type:
+			<select>
+				<option value="Weapon">Weapon</option>
+				<option value="Armor">Armor</option>
+				<option value="Vehicle">Vehicle</option>
+				<option value="Food">Food</option>
+				<option value="Drink">Drink</option>
+				<option value="Tool">Tool</option>
+			</select>
+			<br>
+			Item name: <input type="text" name="ItemName">
+			<br>
+			How many: <input type="range" name="HowMany" min="1" max="5">
+			<br>
+			Can it be hand carried:
+			<input type="checkbox" name="HandCarried" value="Yes">Yes
+			<input type="checkbox" name="HandCarried" value="No">No
+			<br>
+			<textarea> Use this space for special notes per item</textarea>
+		</fieldset>
+	</form>
+	<form>
+		<input type="submit" value="Submit">
+	</form>
+	<a href="#">Clear Stored Data</a> <a href="#">Display Data</a>
+</body>
+</html>
