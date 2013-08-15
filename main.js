@@ -8,8 +8,15 @@ var notes = document.getElementById("textNotes");
 
 /* Test call each id */
 
-console.log (itemType);
-console.log (whatName);
-console.log (numberOf);
-console.log (handable);
-console.log (notes);
+console.log (itemType.value);
+console.log (whatName.value);
+console.log (numberOf.value);
+console.log (handable.value);
+console.log (notes.value);
+
+/* Event listeners */
+
+var getValue = function(){
+	console.log(whatName.value);
+}
+whatName.addEventListener("blur", getValue);

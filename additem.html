@@ -10,7 +10,6 @@
 	<meta name="keywords" content="HTML,CSS,Bug-out"/>
 	<meta name="description" content="Add items to Bug-out bag"/>
 	<link rel="stylesheet" href="styles.css" />
-	<script src="main.js" type="text/javascript"></script>
 	<!-- Page Title -->
 	<title>Bug-out Bag Packing List -- Add An Item</title>
 </head>
@@ -31,12 +30,12 @@
 					<option value="Tool">Tool</option>
 				</select>
 				<br>
-				Item name: <input type="text" name="ItemName" id="itemName">
+				Item name: <input type="text" name="ItemName" id="itemName" value="Baseball Bat">
 				<br>
-				How many: <input type="range" name="HowMany" min="1" max="5" id="howMany">
+				How many: <input type="range" name="HowMany" min="1" max="5" id="howMany" value="1">
 				<br>
 				Can it be hand carried:
-				<input type="checkbox" name="HandCarried" id="checkYesNo" value="Yes">
+				<input type="checkbox" name="HandCarried" id="checkYesNo" value="No">
 				<br>
 				<textarea id="textNotes"> Use this space for special notes per item</textarea>
 			</fieldset>
@@ -46,5 +45,6 @@
 		</form>
 		<a href="#">Clear Stored Data</a> <a href="#">Display Data</a>
 	</div>
+	<script src="main.js" type="text/javascript"></script>
 </body>
 </html>
