@@ -3,7 +3,7 @@
 var itemType = document.getElementById("dropList");
 var whatName = document.getElementById("itemName");
 var numberOf = document.getElementById("howMany");
-// var handable = document.getElementsByTagName("checkbox");
+// var handable = document.getElementById("content").HandCarried;
 var notes = document.getElementById("textNotes");
 // var areYouSure = document.getElementById("submitter");
 
