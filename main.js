@@ -3,7 +3,7 @@
 var itemType = document.getElementById("dropList");
 var whatName = document.getElementById("itemName");
 var numberOf = document.getElementById("howMany");
-// var handable = document.getElementById("content").HandCarried;
+var handable = document.getElementById("theForm").handy;
 var notes = document.getElementById("textNotes");
 // var areYouSure = document.getElementById("submitter");
 
@@ -12,29 +12,53 @@ var notes = document.getElementById("textNotes");
 console.log (itemType.value);
 console.log (whatName.value);
 console.log (numberOf.value);
-// console.log (handable.value);
+console.log (handable);
 console.log (notes.value);
 // console.log (areYouSure.value);
 
+/* checkbox collector */
 
-/* local storage */
+var checkValue = function(){
+	for (c=0, j=handable.length; c<handable; c++){
+		if (handable[c].checked){
+			localStorage.setItem("Carried By Hand", handable[c].value);
+		}
+	}
+};
+
+/* local storage set */
 
 var takeInput = function (){
 	localStorage.setItem("Item Type", itemType.value);
 	localStorage.setItem("Item Name", whatName.value);
 	localStorage.setItem("How Many", numberOf.value);
-//	localStorage.setItem("Carried By Hand", handable.value);
+	checkValue();
 	localStorage.setItem("Notes", notes.value);
 }
 
-itemType.addEventListener("blur", takeInput);
+
+// use this to test inputs
+/* itemType.addEventListener("blur", takeInput);
 whatName.addEventListener("blur", takeInput);
 numberOf.addEventListener("blur", takeInput);
-// handable.addEventListener("blur", takeInput);
 notes.addEventListener("blur", takeInput);
+*/
 
-/* look at local storage */
+
+/* submit button */
+
+submit.addEventListener("click", takeInput);
+
+
+
+//test
+console.log (handable[0]);
+
+
+/* extract local storage
 
 for (i=0, stori=localStorage.length; i<stori; i++){
 	console.log(localStorage.key(i));
 }
+
+*/

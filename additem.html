@@ -35,16 +35,15 @@
 				How many: <input type="range" name="HowMany" min="1" max="5" id="howMany" value="1">
 				<br>
 				Can it be hand carried:
-				<input type="checkbox" name="HandCarried" value="Yes" id="yes">Yes</input>
-				<input type="checkbox" name="HandCarried" value="No" id="no">No</input>
+				<input type="checkbox" name="handy" value="Yes" id="yes" /> <label for="yes">Yes</label>
+				<input type="checkbox" name="handy" value="No" id="no" /> <label for="no">No</label>
 				<br>
 				<textarea id="textNotes"> Use this space for special notes per item</textarea>
+				<br>
+				<input type="button" value="Submit" id="submit">
 			</fieldset>
 		</form>
-		<form>
-			<input type="submit" value="Submit" id="submitter">
-		</form>
-		<a href="#">Clear Stored Data</a> <a href="#">Display Data</a>
+		<a href="#" onclick="localStorage.clear()">Clear Stored Data</a> <a href="#">Display Data</a>
 	</div>
 	<script src="main.js" type="text/javascript"></script>
 </body>
