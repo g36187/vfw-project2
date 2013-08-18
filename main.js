@@ -47,27 +47,25 @@ notes.addEventListener("blur", takeInput);
 */
 
 /* important buttons */
-var dispLink = document.getElementById("displaya");
-// dispLink.addEventListener("click", xxxx);
+
+var showMe = function (){
+	for (i=0, stori=localStorage.length; i<stori; i++){
+		console.log(localStorage.key(i));
+	}
+}
 
 var emptiness = function (){
 	localStorage.clear();
 }
+
 cleary.addEventListener("click", emptiness);
-
 submit.addEventListener("click", takeInput);
-
+displaya.addEventListener("click", showMe);
 
 //test area
 console.log (handable[0]);
 
-/* extract local storage
 
-for (i=0, stori=localStorage.length; i<stori; i++){
-	console.log(localStorage.key(i));
-}
-
-*/
 
 //End of DOM check
 });
