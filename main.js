@@ -46,9 +46,17 @@ numberOf.addEventListener("blur", takeInput);
 notes.addEventListener("blur", takeInput);
 */
 
-/* submit button */
+/* important buttons */
+var dispLink = document.getElementById("displaya");
+// dispLink.addEventListener("click", xxxx);
+
+var emptiness = function (){
+	localStorage.clear();
+}
+cleary.addEventListener("click", emptiness);
 
 submit.addEventListener("click", takeInput);
+
 
 //test area
 console.log (handable[0]);
