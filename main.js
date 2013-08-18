@@ -19,7 +19,7 @@ console.log (notes.value);
 /* checkbox collector */
 
 var checkValue = function(){
-	for (c=0, j=handable.length; c<handable; c++){
+	for (c=0, j=handable.length; c<j; c++){
 		if (handable[c].checked){
 			localStorage.setItem("Carried By Hand", handable[c].value);
 		}
