@@ -6,8 +6,8 @@ window.addEventListener("DOMContentLoaded", function(){
 var itemType = document.getElementById("dropList");
 var whatName = document.getElementById("itemName");
 var numberOf = document.getElementById("howMany");
-var handable = document.getElementById("theForm").handy;
 var notes = document.getElementById("textNotes");
+var handyVal;
 
 /* Test call each id 
 
@@ -21,15 +21,16 @@ console.log (notes.value);
 
 /* radio collector */
 
-var checkValue = function(){
-	for (c=0, j=handable.length; c<j; c++){
-		if (handable[c].checked){
-			localStorage.setItem("Carried By Hand", handable[c].value);
+function checkValue(){
+	var handable = document.getElementById("theForm").handy;
+	for (var i=0; i<handable.length; i++){
+		if (handable[i].checked){
+			handyVal = handable[i].value;
 		}
 	}
-};
+}
 
-/* local storage set */
+/* local storage set 
 
 var takeInput = function (){
 	localStorage.setItem("Item Type", itemType.value);
@@ -38,19 +39,35 @@ var takeInput = function (){
 	checkValue();
 	localStorage.setItem("Notes", notes.value);
 }
-
-// use this to test inputs
-/* itemType.addEventListener("blur", takeInput);
-whatName.addEventListener("blur", takeInput);
-numberOf.addEventListener("blur", takeInput);
-notes.addEventListener("blur", takeInput);
 */
 
+/* actual local data storage */
+
+function storeData(){
+	checkValue();
+/* random keygen and gather data for unique local data */
+
+	var id 			= Math.floor(Math.random()*9001);
+	var item		= {};
+		item.itype  = ["Item Type", itemType.value];
+		item.iname  = ["Item Name", whatName.value];
+		item.inumber= ["How Many", numberOf.value];
+		item.ihand  = ["Carried By Hand", handyVal];
+		item.inotes = ["Notes", notes.value];
+	
+/* stringify for local storage */
+	localStorage.setItem (id, JSON.stringify(item)); 	
+	alert("Information Submitted");
+}
+	
+	
+	
+	
 /* important buttons */
 
 var showMe = function (){
 	for (i=0, stori=localStorage.length; i<stori; i++){
-		console.log(localStorage.key(i));
+		console.log(JSON.parse(i));
 	}
 }
 
@@ -59,12 +76,10 @@ var emptiness = function (){
 }
 
 cleary.addEventListener("click", emptiness);
-submit.addEventListener("click", takeInput);
+submit.addEventListener("click", storeData);
 displaya.addEventListener("click", showMe);
 
 //test area
-console.log (handable[0]);
-
 
 
 //End of DOM check
