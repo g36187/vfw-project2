@@ -30,17 +30,6 @@ function checkValue(){
 	}
 }
 
-/* local storage set 
-
-var takeInput = function (){
-	localStorage.setItem("Item Type", itemType.value);
-	localStorage.setItem("Item Name", whatName.value);
-	localStorage.setItem("How Many", numberOf.value);
-	checkValue();
-	localStorage.setItem("Notes", notes.value);
-}
-*/
-
 /* actual local data storage */
 
 function storeData(){
@@ -60,16 +49,32 @@ function storeData(){
 	alert("Information Submitted");
 }
 	
-	
-	
-	
-/* important buttons */
+/* extract data for show */
+function showYou(){
+	var makeDiv = document.createElement('div');
+	makeDiv.setAttribute("id", "items");
+	var makeList = document.createElement('ul');
+	makeDiv.appendChild(makeList);
+	document.body.appendChild(makeDiv);
 
-var showMe = function (){
 	for (i=0, stori=localStorage.length; i<stori; i++){
-		console.log(JSON.parse(i));
+		var makeli = document.createElement('li');
+		makeList.appendChild(makeli);
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		var makeSubList = document.createElement('ul');
+		makeli.appendChild(makeSubList);
+		
+		for (var n in obj){
+			var makeSubli = document.createElement('li');
+			makeSubList.appendChild(makeSubli);
+			var optSubText = obj[n][0]+" : "+obj[n][1];
+			makeSubli.innerHTML = optSubText;
+		}
 	}
-}
+}	
+/* important buttons */
 
 var emptiness = function (){
 	localStorage.clear();
@@ -77,7 +82,7 @@ var emptiness = function (){
 
 cleary.addEventListener("click", emptiness);
 submit.addEventListener("click", storeData);
-displaya.addEventListener("click", showMe);
+displaya.addEventListener("click", showYou);
 
 //test area
 
