@@ -9,17 +9,7 @@ var numberOf = document.getElementById("howMany");
 var notes = document.getElementById("textNotes");
 var handyVal;
 
-/* Test call each id 
-
-console.log (itemType.value);
-console.log (whatName.value);
-console.log (numberOf.value);
-console.log (handable);
-console.log (notes.value);
-
-*/
-
-/* radio collector */
+/* radio button info collector */
 
 function checkValue(){
 	var handable = document.getElementById("theForm").handy;
@@ -35,7 +25,6 @@ function checkValue(){
 function storeData(){
 	checkValue();
 /* random keygen and gather data for unique local data */
-
 	var id 			= Math.floor(Math.random()*9001);
 	var item		= {};
 		item.itype  = ["Item Type", itemType.value];
@@ -51,30 +40,31 @@ function storeData(){
 	
 /* extract data for show */
 function showYou(){
-	var makeDiv = document.createElement('div');
-	makeDiv.setAttribute("id", "items");
-	var makeList = document.createElement('ul');
-	makeDiv.appendChild(makeList);
-	document.body.appendChild(makeDiv);
-
+	var createDiv = document.createElement('div');
+	createDiv.setAttribute("id", "items");
+	var addList = document.createElement('ul');
+	createDiv.appendChild(addList);
+	document.body.appendChild(createDiv);
+// go through local storage and get data .. loop as necessary
 	for (i=0, stori=localStorage.length; i<stori; i++){
 		var makeli = document.createElement('li');
-		makeList.appendChild(makeli);
+		addList.appendChild(makeli);
 		var key = localStorage.key(i);
 		var value = localStorage.getItem(key);
+// parse data and begin putting into list elements
 		var obj = JSON.parse(value);
-		var makeSubList = document.createElement('ul');
-		makeli.appendChild(makeSubList);
-		
+		var addSubList = document.createElement('ul');
+		makeli.appendChild(addSubList);
+// export date in pairs		
 		for (var n in obj){
-			var makeSubli = document.createElement('li');
-			makeSubList.appendChild(makeSubli);
+			var addSubli = document.createElement('li');
+			addSubList.appendChild(addSubli);
 			var optSubText = obj[n][0]+" : "+obj[n][1];
-			makeSubli.innerHTML = optSubText;
+			addSubli.innerHTML = optSubText;
 		}
 	}
 }	
-/* important buttons */
+/* important buttons for navigation*/
 
 var emptiness = function (){
 	localStorage.clear();
@@ -83,8 +73,6 @@ var emptiness = function (){
 cleary.addEventListener("click", emptiness);
 submit.addEventListener("click", storeData);
 displaya.addEventListener("click", showYou);
-
-//test area
 
 
 //End of DOM check
